@@ -1,0 +1,243 @@
+
+    :root{
+      --bg: #f6f7f9;
+      --card: #ffffff;
+      --text: #101010;
+      --muted: #5c667a;
+      --brand: #0ea5e9; /* سماوي هادئ */
+      --ring: rgba(14,165,233,.25);
+      --shadow: 0 10px 30px rgba(2,6,23,.08);
+      --radius: 18px;
+      --maxw: 1100px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg: #000000;
+        --card: #000000;
+        --text: #e5e7eb;
+        --muted: #94a3b8;
+        --brand: #ffffff;
+        --ring: rgba(56,189,248,.22);
+        --shadow: 0 10px 30px rgba(0,0,0,.45);
+      }
+    }
+
+  
+
+
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; background:var(--bg); color:var(--text);
+      font-family: "Cairo", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height:1.9;
+    }
+    header.site-header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(1.2) blur(8px);
+      background:color-mix(in oklab, var(--bg) 92%, transparent);
+      border-bottom:1px solid color-mix(in oklab, var(--muted) 20%, transparent);
+    }
+    .nav{
+      max-width:var(--maxw); margin:auto; display:flex; gap:12px; align-items:center;
+      padding:18px 20px; flex-wrap:wrap;
+    }
+    .brand{ display:flex; align-items:center; gap:15px; margin-inline-end:auto; margin-top: 25px;
+    }
+
+.hamburger {
+font-size: 30px;
+margin-top: -50px;
+  cursor:pointer;
+  color:var(--text);
+  margin-inline-start:auto;
+}
+
+.mobile-menu {
+  display:none;
+  flex-direction:column;
+  background:var(--card);
+  position:absolute;
+  top:70px; right:20px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:10px 0;
+  z-index:999;
+  margin-right: 80%;
+  background-color: #27292e;
+}
+
+.mobile-menu a {
+  padding:10px 20px;
+  text-decoration:none;
+  color:var(--text);
+  font-weight:600;
+}
+.mobile-menu a:hover {
+  background-color: #231e30;
+}
+
+.show-hamburger .hamburger {
+  display:block;
+}
+
+
+@media (max-width:500px){
+  .links {display:none;}
+  .hamburger {display:block;
+
+ 
+  }
+
+  .mobile-menu{
+display:none;
+  flex-direction:column;
+  background:var(--card);
+  position:absolute;
+  top:70px; right:-100px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:10px 0;
+  z-index:999;
+  margin-right: 65%;
+  background-color: #27292e;
+  }
+
+ 
+}
+
+
+    .logo{
+      width:38px; height:38px; border-radius:14px; display:grid; place-items:center;
+      background: radial-gradient(120% 120% at 10% 10%, var(--brand) 0%, color-mix(in oklab, var(--brand), #fff 25%) 30%, transparent 60%),
+                  linear-gradient(135deg, color-mix(in oklab, var(--brand), #000 20%), color-mix(in oklab, var(--brand), #fff 30%));
+      box-shadow: inset 0 0 0 2px color-mix(in oklab, var(--brand) 30%, transparent), var(--shadow);
+    }
+    .brand h1{ font: 800 20px/1 "Cairo"; margin:0 }
+
+    .links{ display:flex; gap:8px; flex-wrap:wrap }
+    .links a{
+      text-decoration:none; font-weight:600; padding:10px 14px; border-radius:999px;
+      color:var(--text); border:1px solid color-mix(in oklab, var(--muted) 28%, transparent);
+      border-color: #fff;
+    }
+    .links a:hover{
+      outline: 3px solid var(--ring); border-color: color-mix(in oklab, var(--brand) 50%, var(--muted));
+    }
+
+    main{ max-width:var(--maxw); margin:28px auto; padding:0 20px; }
+
+    .hero{
+      background: conic-gradient(from 140deg at 0% 120%, color-mix(in oklab, var(--brand), #fff 50%) 0deg, transparent 90deg) no-repeat;
+      border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow);
+      border: 1px solid color-mix(in oklab, var(--muted) 26%, transparent);
+      border-color: #fff;
+    }
+    .bismillah{ font-family:"Amiri Quran", serif; font-size: clamp(22px, 5vw, 30px); opacity:.9 
+    }
+  
+    .hero h2 
+    {
+      font-size: 35px;
+    }
+
+    .lead{ margin-top: 6px; color:var(--muted); font-weight:600 }
+
+    .section{ margin: 36px 0 }
+    .section h2{
+      font: 800 clamp(20px, 4vw, 26px)/1.3 "Cairo"; margin:0 0 16px 0;
+      display:flex; align-items:center; gap:10px;
+    }
+    .section h2 .tag{ font-size:12px; font-weight:700; letter-spacing:.06em; color:var(--brand) }
+
+    .grid{
+      display:grid; gap:16px; grid-template-columns: repeat(12, 1fr);
+    }
+    .ayah-card{
+      grid-column: span 12; background: var(--card); border-radius: var(--radius);
+      padding: 20px; box-shadow: var(--shadow);
+      border:1px solid color-mix(in oklab, var(--muted) 22%, transparent);
+    }
+    @media (min-width:680px){ .ayah-card{ grid-column: span 6 } }
+    @media (min-width:980px){ .ayah-card{ grid-column: span 4 } }
+
+    blockquote{
+      margin:0 0 12px 0; font-family:"Amiri Quran", serif; font-size: clamp(18px, 2.6vw, 24px);
+      font-size: 30px;
+    }
+    .meta{ display:flex; gap:8px; flex-wrap:wrap; color:var(--muted); font-weight:600; font-size:14px }
+    .badge{
+      padding:4px 10px; border-radius:999px; border:1px solid color-mix(in oklab, var(--muted) 25%, transparent);
+      background: color-mix(in oklab, var(--card), var(--brand) 6%);
+    }
+
+    .toc{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:14px
+    }
+    .toc a{ text-decoration:none; background:var(--card); border-radius:50px; padding:8px 12px; box-shadow:var(--shadow);
+      border:1px solid color-mix(in oklab, var(--muted) 18%, transparent); font-weight:700; color:var(--text) ; 
+      border-color: #fff; 
+    }
+
+    footer{ margin:40px 0 60px; color:var(--muted); font-weight:600; text-align:center }
+    footer a{ color:var(--brand); text-decoration:none 
+    }
+
+    .card {
+      grid-column: span 12; background: var(--card); border-radius: var(--radius);
+      padding: 20px; box-shadow: var(--shadow);
+      border:1px solid color-mix(in oklab, var(--muted) 22%, transparent);
+      margin-bottom: 10%;
+      margin-top: 10%;
+      border-color: #ffffff;
+    }
+  
+    .aban2-header {
+margin-right: 41%;
+    }
+
+    .aban2-header2 {
+margin-right: 40%;  
+    }
+
+    .aban2-header3 {
+      margin-right: 46%;  
+      margin-bottom: 6%;
+    }
+
+    .card h1 {
+      color: red;
+margin-right: 50%;
+    }
+    
+
+    .icon_menu
+{
+    margin-left: 15px;
+    color: #fff;
+}
+  .hero .div_img .bg_img
+{
+    width: 37px;
+    margin-bottom: -90px;
+}
+
+.close_menu,
+header .links .logo, 
+.icon_menu
+{
+    display: none;
+}
+
+
+
+
+
+
+.hamburger {
+
+    color: #fff;
+    margin-right: 90%;
+}
+
+@media (max-width:700px)
+{}
